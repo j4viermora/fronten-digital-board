@@ -11,14 +11,12 @@ export const GridGrupos = ({ data }) => {
         <div className="row">
             
             {
-                grupos.map( ( grupo, i ) => (
+                grupos.map( grupo  => (
                 <div
-                key={ i }
+                key={ grupo }
                  className="mb-5 col-4" >
                     <CardGrupos
-                        numero={ grupo.Grupo }
-                        auxiliar={ grupo.Auxiliar }
-                        superintendente={ grupo.Conductor }
+                      { ...grupo }
                     />
                 </div>
                 ))
