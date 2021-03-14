@@ -43,7 +43,7 @@ export const Navegacion = (  ) => {
           >
             <span className="navbar-toggler-icon"></span>
           </button>
-          <div className="collapse navbar-collapse" id="navbarNav">
+          <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
             <ul className="navbar-nav">
           
             <li className="nav-item">
@@ -51,6 +51,14 @@ export const Navegacion = (  ) => {
               className="nav-link" 
               to="/app/grupos" >
                 Grupos
+              </Link>
+            </li>
+            
+            <li className="nav-item">
+              <Link 
+              className="nav-link" 
+              to="/app/publicadores" >
+                Publicadores
               </Link>
             </li>
             <li className="nav-item">
@@ -63,15 +71,8 @@ export const Navegacion = (  ) => {
             <li className="nav-item">
               <Link 
               className="nav-link" 
-              to="/app/publicadores" >
-                Publicadores
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link 
-              className="nav-link" 
               to="/inicio" >
-                Ir al la sección publica
+                Salir
               </Link>
             </li>
               

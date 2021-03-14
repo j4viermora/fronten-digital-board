@@ -35,4 +35,5 @@ export const grupos = [
         Auxiliar: "Luis Orono",
         Integrantes: 11
     },
+   
 ]

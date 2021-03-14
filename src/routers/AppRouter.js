@@ -18,25 +18,17 @@ export const AppRouter = () => {
         <div>
          <Router>
                <div>
-                    <Switch>
-                            
+                    <Switch>                            
                             <PrivateRouters 
                             path="/app"
                             component={ Dashboard }
                             isAuthenticated={ isAuthenticated }
                             />
-                            
-
-                            {/* <Route path='/app' component={ Dashboard } /> */}
                             <PublicRouters 
-
                             path='/'
                             component={ Home }
                             isAuthenticated={ isAuthenticated }
-                            
-                            />
-                            
-                    
+                            />        
                     </Switch>
                 </div>
          </Router>

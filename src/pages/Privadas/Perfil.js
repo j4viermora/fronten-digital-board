@@ -1,42 +1,65 @@
 import React from 'react'
 
-const styel = {
-    display: 'flex',
-    justifyContent: 'space-around', 
-}
+// const styel = {
+//     display: 'flex',
+//     justifyContent: 'space-around', 
+// }
 
 
 export const Perfil = () => {
     return (
         <div className="container  col-md-6 col" >
-            <div className="card">
+            <div className="card" style={{ borderRadius: 30 , padding: 50 }} >
                 <div className="card-body" >
                    <div className="text-center">
                     <h2 className="card-title ">Javier Mora</h2>
                         <p> Administrador </p>
-                   </div>
+
+                    <div className="row">
+                        <div className="col">
                         <div
                         className="mt-3" 
-                        style={ styel } >
+                            >
                             <h5>Horas</h5>
-                            <h5>Publicaciones</h5>
-                            <h5>Mes</h5>
-                        </div>
-                        <div style={ styel } className="mt-2" >
                             <p>50</p>
+
+                        </div>
+                        </div>
+                        <div className="col">
+                        <div
+                        className="mt-3" 
+                            >
+                            <h5>Publicaciones</h5>
                             <p>10</p>
+
+                        </div>
+                        </div>
+                        <div className="col">
+                        <div
+                        className="mt-3" 
+                            >
+                            <h5>Mes</h5>
                             <p>Eneros</p>
                         </div>
+                        </div>
+                    </div>
 
-                        <h3 className="text-center mt-5" >Datos del perfil</h3>
+                   </div>
+                        <h5 className="text-center mt-5" >Información del perfil</h5>
                         <label> Correo </label>
+                        <input 
+                        value="javier@correo.com"
+                        className="form-control mb-3" />
+                        <label> Clave </label>
+                        <input 
+                        type="password"
+                        className="form-control mb-3" />
+                        <label> Nueva clave </label>
                         <input className="form-control mb-3" />
-                        <label> Correo </label>
+                        <label> Repetir nueva clave </label>
                         <input className="form-control mb-3" />
-                        <label> Correo </label>
-                        <input className="form-control mb-3" />
-                        <button className="btn btn-outline-success block" >Guardar</button>                      
                 </div>
+                        <button className="btn btn-primary block" >Guardar</button>                      
             </div>
         </div>
     )
