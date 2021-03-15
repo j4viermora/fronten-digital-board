@@ -14,7 +14,7 @@ import { PublicRouters } from './PublicRouters';
 
 export const AppRouter = () => {
     
-    const { isLoged: isAuthenticated } = useSelector( state => state.Auth )
+    const { uid: isAuthenticated } = useSelector( state => state.Auth )
     
     return (
         <div>
@@ -24,12 +24,12 @@ export const AppRouter = () => {
                             <PrivateRouters 
                             path="/app"
                             component={ Dashboard }
-                            isAuthenticated={ isAuthenticated }
+                            isAuthenticated={ !!isAuthenticated }
                             />
                             <PublicRouters 
                             path='/'
                             component={ Home }
-                            isAuthenticated={ isAuthenticated }
+                            isAuthenticated={ !!isAuthenticated }
                             />        
                     </Switch>
                 </div>

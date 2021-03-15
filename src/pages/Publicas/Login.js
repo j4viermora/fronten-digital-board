@@ -3,7 +3,8 @@ import "bootstrap";
 import { Card, Form, Button, Row, Col } from "react-bootstrap";
 import './login.css';
 import { useFormik } from "formik";
-
+import { useDispatch } from "react-redux";
+import { StartLogin } from "../../actions/auth";
 const { Group, Control } = Form;
 const { Body } = Card;
 
@@ -11,25 +12,28 @@ const { Body } = Card;
 
 export const Login = () => {
   
+  const dispatch = useDispatch()
+
   const formik = useFormik( {
     initialValues:{
       email:"",
       password:""
     },
-    onSubmit: ( value ) => alert( JSON.stringify( value ))
+    onSubmit: value  => dispatch( StartLogin( value ))
   });
  
   return (
     <>
       <Row className="main-center">
         <Col lg={ 6 }>
-        <Card  id="login-card">
+        <Card className="animate__animated animate__fadeInUp" id="login-card">
           <Body>
             <Form onSubmit={ formik.handleSubmit }>
               {/**Email */}
               <Group className="mb-3" controlId="formBasicEmail">
                 <h4>Email</h4>
                 <Control 
+                autoComplete="off"
                 type="email" 
                 placeholder="Tu email"
                 name="email"
@@ -39,7 +43,8 @@ export const Login = () => {
               </Group>
               <Group controlId="formBasicPassword">
                 <h4>Contraseña</h4>
-                <Control  
+                <Control 
+                autoComplete="off" 
                 type="password" 
                 placeholder="*****"
                 name="password"

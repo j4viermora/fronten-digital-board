@@ -1,20 +1,19 @@
 import React from 'react';
 import { Nav, Navbar, Container, Button } from 'react-bootstrap';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { fakeLogout } from '../../actions/auth';
-
+import { startLogout } from '../../actions/auth';
 import './Navegacion.css';
-
-
 
 export const Navegacion = (  ) => { 
   
+  const { name } = useSelector( state => state.Auth )
+
   const dispatch =useDispatch();
 
   function handleLogout( e ){
       console.log(e)
-      dispatch( fakeLogout() )
+      dispatch( startLogout() )
   }
 
   return (
@@ -31,7 +30,7 @@ export const Navegacion = (  ) => {
             <Nav className="mr-auto">             
                   <Nav.Link className="nav-item">
                     <span style={{ color: "white" }} className="nav-link">
-                         Bienvenido Javier
+                         Bienvenido { name }
                     </span>
                   </Nav.Link>
                   <Nav.Link className="nav-item">
@@ -40,7 +39,10 @@ export const Navegacion = (  ) => {
                     </Link>
                   </Nav.Link>
                   <Nav.Link className="nav-item">
-                    <Button className="nav-link btn" id="btn-logout" onClick={ handleLogout } >
+                    <Button 
+                    className="nav-link btn" 
+                    id="btn-logout" 
+                    onClick={ handleLogout } >
                         Salir     
                     </Button>      
                   </Nav.Link>             

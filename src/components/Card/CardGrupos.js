@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Card } from 'react-bootstrap';
 import PropTypes from 'prop-types';
+import './cardGroup.css';
+import 'animate.css'
 
 export const CardGrupos = ({ 
   Grupo,
@@ -11,8 +13,8 @@ export const CardGrupos = ({
 } ) => {
   
     return (
-      <Link style={{ textDecoration: 'none', color: 'black' }} to={`/app/grupos/${ Grupo }`} > 
-          <Card className="card-digital-group" >
+      <Link to={`/app/grupos/${ Grupo }`} > 
+          <Card className="animate__animated animate__fadeInUp" >
             <Card.Body>
               <Card.Title className="text-center" style={{ fontSize: '2rem' }} >
                       { Grupo }
