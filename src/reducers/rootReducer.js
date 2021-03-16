@@ -1,6 +1,6 @@
 import { combineReducers } from "redux";
-import { pubReducer } from "./pubReducer";
 import { authReducer } from "./authReducer";
+import { pubReducer } from "./pubReducer";
 
 
 const rootReducer = combineReducers( {
