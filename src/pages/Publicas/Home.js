@@ -10,21 +10,15 @@ export const Home = () => {
     return (
         <div>
             <NavegacionPublica />
-
                 <div className="mt-5" >
-                    <Switch>
-                        
-                        
-                            <Route path="/nosotros" component={ Nosotros } />
-                            <Route path="/contacto" component={ Contacto } />
-                            <Route path="/login" component={ Login } />
+                    <Switch>               
+                            <Route exact path="/nosotros" component={ Nosotros } />
+                            <Route exact path="/contacto" component={ Contacto } />
+                            <Route exact path="/login" component={ Login } />
 
                             <Redirect to="/nosotros" />
-
                     </Switch>
                 </div>
-
-
         </div>
     )
 }

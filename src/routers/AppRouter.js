@@ -2,6 +2,7 @@ import React from 'react'
 import { useSelector } from 'react-redux';
 import {
     BrowserRouter as Router,
+    Redirect,
     Switch,
   } from "react-router-dom";
 import { Dashboard } from '../pages/Privadas/Dashboard';
@@ -26,11 +27,13 @@ export const AppRouter = () => {
                             component={ Dashboard }
                             isAuthenticated={ !!isAuthenticated }
                             />
-                            <PublicRouters 
+                            <PublicRouters
                             path='/'
                             component={ Home }
                             isAuthenticated={ !!isAuthenticated }
-                            />        
+                            />    
+
+                            <Redirect to="/" />    
                     </Switch>
                 </div>
          </Router>

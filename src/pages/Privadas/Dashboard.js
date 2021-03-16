@@ -25,7 +25,7 @@ export const Dashboard = () => {
                         <Route exact path="/app/publicadores" component={ Publicadores }/ >
                         <Route exact path="/app/publicadores/:pubId" component={ SinglePub }/ >
                         <Route exact path="/app/grupos/:pubId" component={ SingleGrupo }/ >        
-                      <Redirect to="/app/grupos"/>
+                      <Redirect to="/app/perfil"/>
                 </Switch>
             </div>
           </Col>        
