@@ -3,12 +3,10 @@ import { useSelector } from 'react-redux';
 import {
     BrowserRouter as Router,
     Redirect,
+    Route,
     Switch,
   } from "react-router-dom";
-import { Dashboard } from '../pages/Privadas/Dashboard';
-import { Home } from '../pages/Publicas/Home';
-import { PrivateRouters } from './PrivateRouters';
-import { PublicRouters } from './PublicRouters';
+import Dashboard from '../pages/dasboard/Dashboard';
 
 
 
@@ -22,7 +20,7 @@ export const AppRouter = () => {
          <Router>
                <div>
                     <Switch>                            
-                            <PrivateRouters 
+                            {/* <PrivateRouters 
                             path="/app"
                             component={ Dashboard }
                             isAuthenticated={ !!isAuthenticated }
@@ -31,8 +29,8 @@ export const AppRouter = () => {
                             path='/'
                             component={ Home }
                             isAuthenticated={ !!isAuthenticated }
-                            />    
-
+                            />     */}
+                            <Route path="/" component={ Dashboard } />
                             <Redirect to="/" />    
                     </Switch>
                 </div>
