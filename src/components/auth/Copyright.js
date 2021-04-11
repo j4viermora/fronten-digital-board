@@ -3,9 +3,8 @@ export function Copyright() {
     return (
       <Typography variant="body2" color="textSecondary" align="center">
         {'Copyright © '}
-        <a color="inherit" href="https://codeningspa.com/" target="_blank" rel="noopener noreferrer" >
-          Codening
-        </a>{' '}
+          Hobby layer
+          { ' ' }
         {new Date().getFullYear()}
         {'.'}
       </Typography>

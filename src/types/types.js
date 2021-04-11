@@ -1,4 +1,6 @@
 export const types = {
-    startLogout : "[auth] startLogout",
-    startLogin: "[auth] startLogin",
+    STARTLOGIN: "[AUTH] startLogin",
+    AUTHLOGIN: "[AUTH] LOGIN",
+    STARTLOGOUT : "[AUTH] startLogout",
+    AUTHLOGOUT : "[AUTH] LOGOUT",
 }

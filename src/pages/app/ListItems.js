@@ -4,7 +4,6 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 // import ListSubheader from '@material-ui/core/ListSubheader';
 import DashboardIcon from '@material-ui/icons/Dashboard';
-import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import PeopleIcon from '@material-ui/icons/People';
 import BarChartIcon from '@material-ui/icons/BarChart';
 import LayersIcon from '@material-ui/icons/Layers';
@@ -23,36 +22,29 @@ export const mainListItems = (
         <ListItemText primary="Dashboard" />
       </Link>
     </ListItem>
-    <ListItem button>
-      <ListItemIcon>
-        <ShoppingCartIcon />
-      </ListItemIcon>
-      <Link component={ RouterLink } to="/app/cuentas">
-        <ListItemText primary="Cuentas" />
-      </Link>
-    </ListItem>
+   
     <ListItem button>
       <ListItemIcon>
         <PeopleIcon />
       </ListItemIcon>
-      <Link component={ RouterLink } to="/app/clientes">
-        <ListItemText primary="Clientes" />
+      <Link component={ RouterLink } to="/app/grupos">
+        <ListItemText primary="Grupos" />
       </Link>
     </ListItem>
     <ListItem button>
       <ListItemIcon>
         <BarChartIcon />
       </ListItemIcon>
-      <Link component={ RouterLink } to="/app/reportes">
-        <ListItemText primary="Reportes" />
+      <Link component={ RouterLink } to="/app/congregacion">
+        <ListItemText primary="Congregación" />
       </Link>
     </ListItem>
     <ListItem button>
       <ListItemIcon>
         <LayersIcon />
       </ListItemIcon>
-      <Link component={ RouterLink } to="/app/integraciones">
-        <ListItemText primary="Integraciones" />
+      <Link component={ RouterLink } to="/app/register">
+        <ListItemText primary="Registro de usuarios" />
       </Link>
     </ListItem>
     <ListItem button>

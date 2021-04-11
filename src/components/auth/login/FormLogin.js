@@ -10,26 +10,31 @@ import Box from '@material-ui/core/Box';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
-import { Link } from 'react-router-dom';
+import Link from '@material-ui/core/Link';
+import { Link as RouterLink } from 'react-router-dom';
 import { Copyright } from '../Copyright';
 import { useFormik } from 'formik';
 import { useStyles } from './styles';
+import { startLogin } from '../../../actions/auth';
+import { useDispatch } from 'react-redux';
 
 
 export function FormLogin() {
 
+    const dispatch = useDispatch()
     const classes = useStyles();
-
-    const formik = useFormik({
+    const formik = useFormik({  
 
       initialValues:{
-        email: '',
-        password:''
+        email: 'test@test.com',
+        password:'123456',
+        rememberme: ''
       },
       onSubmit: ( value,{ resetForm }) =>{
-        console.log(value)
-        alert( JSON.stringify(value))
+        
+        dispatch( startLogin( value ) )
         resetForm();
+        
       }
 
     });
@@ -86,12 +91,12 @@ export function FormLogin() {
           </Button>
           <Grid container>
             <Grid item xs>
-              <Link to="#" variant="body2">
+              <Link component={ RouterLink } to="#" variant="body2">
                 ¿Olvidaste tu contraseña?
               </Link>
             </Grid>
             <Grid item>
-              <Link to="/register" variant="body2">
+              <Link component={ RouterLink } to="/register" variant="body2">
                 {"¿No tienes cuenta? Registrate"}
               </Link>
             </Grid>

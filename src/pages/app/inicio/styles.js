@@ -1,12 +1,9 @@
-import { Grid, makeStyles, Paper } from '@material-ui/core'
-import React from 'react'
-import Chart from './Chart'
-import Orders from './Orders'
-import clsx from 'clsx';
-import Deposits from './Deposits';
+
+import { makeStyles } from '@material-ui/core'
 
 const drawerWidth = 240;
-const useStyles = makeStyles((theme) => ({
+
+export const useStyles = makeStyles((theme) => ({
     root: {
       display: 'flex',
     },
@@ -85,34 +82,3 @@ const useStyles = makeStyles((theme) => ({
     },
   }));
   
-
-export const Inicio = () => {
-    const classes = useStyles()
-
-    const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
-
-    return (
-        <>
-            <Grid container spacing={3}>
-            {/* Chart */}
-            <Grid item xs={12} md={8} lg={9}>
-              <Paper className={fixedHeightPaper}>
-                <Chart />
-              </Paper>
-            </Grid>
-            {/* Recent Deposits */}
-            <Grid item xs={12} md={4} lg={3}>
-              <Paper className={fixedHeightPaper}>
-                <Deposits />
-              </Paper>
-            </Grid>
-            {/* Recent Orders */}
-            <Grid item xs={12}>
-              <Paper className={classes.paper}>
-                <Orders />
-              </Paper>
-            </Grid>
-          </Grid>
-        </>
-    )
-}

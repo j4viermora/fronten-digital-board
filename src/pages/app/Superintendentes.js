@@ -1,6 +1,4 @@
 import React from 'react';
-import Link from '@material-ui/core/Link';
-import { makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -21,29 +19,19 @@ const rows = [
   createData(4, '15 Mar, 2019', 'Bruce Springsteen', 'Long Branch, NJ', 'VISA ⠀•••• 5919', 212.79),
 ];
 
-function preventDefault(event) {
-  event.preventDefault();
-}
 
-const useStyles = makeStyles((theme) => ({
-  seeMore: {
-    marginTop: theme.spacing(3),
-  },
-}));
 
-export default function Orders() {
-  const classes = useStyles();
+export default function Superintendentes() {
   return (
     <React.Fragment>
       <Title>Recent Orders</Title>
       <Table size="small">
         <TableHead>
           <TableRow>
-            <TableCell>Fecha</TableCell>
+            <TableCell>Grupo</TableCell>
             <TableCell>Nombre</TableCell>
-            <TableCell>Enviar a</TableCell>
-            <TableCell>Método de pago</TableCell>
-            <TableCell align="right">Monto</TableCell>
+            <TableCell>Auxiliar</TableCell>
+            <TableCell>Total publicadores</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -53,16 +41,17 @@ export default function Orders() {
               <TableCell>{row.name}</TableCell>
               <TableCell>{row.shipTo}</TableCell>
               <TableCell>{row.paymentMethod}</TableCell>
+              <TableCell>{row.paymentMethod}</TableCell>
               <TableCell align="right">{row.amount}</TableCell>
             </TableRow>
           ))}
         </TableBody>
       </Table>
-      <div className={classes.seeMore}>
+      {/* <div className={classes.seeMore}>
         <Link color="primary" href="#" onClick={preventDefault}>
           Ver todas las ordenes
         </Link>
-      </div>
+      </div> */}
     </React.Fragment>
   );
 }

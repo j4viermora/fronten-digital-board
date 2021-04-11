@@ -17,14 +17,15 @@ import NotificationsIcon from '@material-ui/icons/Notifications';
 import { mainListItems } from '../ListItems';
 import { Copyright }  from '../../../components/auth/Copyright'
 import { Redirect, Route, Switch } from 'react-router';
-import { Cuentas } from '../Cuentas';
-import { Inicio } from '../Inicio';
-import { Clientes } from '../Clientes';
-import { Reportes } from '../Reportes';
-import { Integraciones } from '../Integraciones';
+import { Inicio } from '../inicio/Inicio';
 import { MiCuenta } from '../MiCuenta';
 import { useStyles } from './styles' 
-
+import { Register } from '../../auth/Register';
+import { Grupos } from '../Grupos'
+import { Congregacion } from '../Congregacion'
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import { useDispatch } from 'react-redux';
+import { logout } from '../../../actions/auth';
 
 export default function Dashboard() {
   const classes = useStyles();
@@ -32,10 +33,17 @@ export default function Dashboard() {
   const handleDrawerOpen = () => {
     setOpen(true);
   };
+
+  const dispatch = useDispatch()
+
   const handleDrawerClose = () => {
     setOpen(false);
   };
   
+  const handleLogout = (evt) => {
+    dispatch( logout() )
+
+  }
 
   return (
     <div className={classes.root}>
@@ -58,6 +66,11 @@ export default function Dashboard() {
             <Badge badgeContent={4} color="secondary">
               <NotificationsIcon />
             </Badge>
+          </IconButton>
+          <IconButton
+          onClick={ handleLogout }
+          color="inherit">
+              <ExitToAppIcon/>
           </IconButton>
         </Toolbar>
       </AppBar>
@@ -83,10 +96,9 @@ export default function Dashboard() {
           <Switch>
 
             <Route exact path="/app" component={ Inicio } />    
-            <Route exact path="/app/cuentas" component={ Cuentas } />
-            <Route exact path="/app/clientes" component={ Clientes } />
-            <Route exact path="/app/reportes" component={ Reportes } />
-            <Route exact path="/app/integraciones" component={ Integraciones } />
+            <Route exact path="/app/grupos" component={ Grupos } />
+            <Route exact path="/app/congregacion" component={ Congregacion } />
+            <Route exact path="/app/register" component={ Register } />
             <Route exact path="/app/perfil" component={ MiCuenta } />
          
             <Redirect to="/app" />

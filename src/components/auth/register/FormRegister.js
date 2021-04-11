@@ -4,41 +4,19 @@ import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
 import Grid from '@material-ui/core/Grid';
-import Box from '@material-ui/core/Box';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
-import { Link } from 'react-router-dom';
+import Link from '@material-ui/core/Link';
+import { Link as RouterLink } from 'react-router-dom';
 import { Copyright } from '../Copyright';
 import { useStyles } from './styles';
 import { useFormik } from 'formik';
-import * as yup from 'yup';
+import {validationSchema} from './validationSchema';
 
 export function FormRegister() {
   const classes = useStyles();
 
-  const validationSchema =  yup.object({
-    firstName: yup
-      .string('Introduce un email')
-      .min(2, 'El nombre debe ser mayor a dos caracteres')
-      .required('Nombre es requerido'),
-    lastName: yup
-      .string('Introduce un email')
-      .min( 2, 'El apellido no puede ser mayor a dos caracteres' )
-      .required('Apellido es requerido'),
-    email: yup
-      .string('Introduce un email')
-      .email( 'Escribe un email valido' )
-      .required('Email es requerido'),
-    password: yup
-      .string('Introduce un email')
-      .min( 6, 'La contraseña debe ser mayor a 6 caracteres' )
-      .required('La constraseña es requerida'),
-    password2: yup
-      .string('Introduce un email')
-      .min( 6, 'La contraseña debe ser mayor a 6 caracteres' )
-      .required('Es necesario confirmar la contraseña'),
-  })
 
   const formik = useFormik({
     initialValues:{
@@ -52,7 +30,7 @@ export function FormRegister() {
     onSubmit: ( value, { resetForm } ) => {
       
       if( value.password === value.password2 ){
-        alert( JSON.stringify( value ));
+        console.log(value)
         resetForm();
       }
       
@@ -157,20 +135,18 @@ export function FormRegister() {
             color="primary"
             className={classes.submit}
           >
-            Registarme
+            Registrar
           </Button>
           <Grid container justify="flex-end">
             <Grid item>
-              <Link to="/login" variant="body2">
+              <Link component={ RouterLink } to="/login" variant="body2">
                 ¿Ya tienes una cuenta? Inicia sesión
               </Link>
             </Grid>
           </Grid>
         </form>
       </div>
-      <Box mt={5}>
-        <Copyright />
-      </Box>
+      <Copyright/>
     </Container>
   );
 }
