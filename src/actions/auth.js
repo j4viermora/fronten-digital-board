@@ -7,6 +7,8 @@ export const startLogin = ({ email, password }) => {
 
     return async( dispatch ) => {
 
+        console.log({ email, password })
+
         try{
             dispatch( { type: types.CHECKINGSTART } )
             const resp = await axios.post( `${baseURl}/users/login`,{ email, password
@@ -20,7 +22,13 @@ export const startLogin = ({ email, password }) => {
         }
         catch(errs){
             console.log( 'todo se rompio' )
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Something went wrong!',
+              })
             dispatch({ type: types.CHECKIFINISH })
+
         }
     }
 };
