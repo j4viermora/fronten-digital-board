@@ -16,7 +16,7 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import { mainListItems } from '../ListItems';
 import { Copyright }  from '../../../components/auth/Copyright'
-import { Redirect, Route, Switch } from 'react-router';
+import { Route, Switch } from 'react-router';
 import { Inicio } from '../inicio/Inicio';
 import { MiCuenta } from '../MiCuenta';
 import { useStyles } from './styles' 
@@ -40,9 +40,9 @@ export default function Dashboard() {
     setOpen(false);
   };
   
-  const handleLogout = (evt) => {
-    dispatch( logout() )
-
+  const handleLogout = () => {
+    localStorage.removeItem('token')
+    dispatch( logout() );
   }
 
   return (
@@ -100,8 +100,8 @@ export default function Dashboard() {
             <Route exact path="/app/congregacion" component={ Congregacion } />
             <Route exact path="/app/register" component={ Register } />
             <Route exact path="/app/perfil" component={ MiCuenta } />
-         
-            <Redirect to="/app" />
+
+            {/* <Redirect to="/app" /> */}
           </Switch>
          
           <Box pt={4}>

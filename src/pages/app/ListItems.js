@@ -18,7 +18,7 @@ export const mainListItems = (
       <ListItemIcon>
         <DashboardIcon />
       </ListItemIcon>
-      <Link component={ RouterLink } to="/">
+      <Link component={ RouterLink } to="/app">
         <ListItemText primary="Dashboard" />
       </Link>
     </ListItem>

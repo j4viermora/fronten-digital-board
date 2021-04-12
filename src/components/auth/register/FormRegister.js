@@ -9,33 +9,33 @@ import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import Link from '@material-ui/core/Link';
 import { Link as RouterLink } from 'react-router-dom';
-import { Copyright } from '../Copyright';
 import { useStyles } from './styles';
 import { useFormik } from 'formik';
-import {validationSchema} from './validationSchema';
+// import {validationSchema} from './validationSchema';
+import { useDispatch } from 'react-redux';
+import { startRegister } from '../../../actions/auth';
+import { FormControl, InputLabel, Select, MenuItem } from '@material-ui/core';
 
 export function FormRegister() {
   const classes = useStyles();
+  const dispatch = useDispatch()
 
+  const handleRegister = (value, resetForm) => {
+    dispatch( startRegister( value ) )
+    resetForm();
+  }
 
   const formik = useFormik({
     initialValues:{
-      firstName:'',
+      name:'',
       lastName: '',
       email:'',
       password:'',
-      password2:'',
+      group: '',
+      phone1: ''
     },
-    validationSchema: validationSchema,
-    onSubmit: ( value, { resetForm } ) => {
-      
-      if( value.password === value.password2 ){
-        console.log(value)
-        resetForm();
-      }
-      
-    }
-  })
+    // validationSchema: validationSchema,
+    onSubmit: ( value, { resetForm } ) => handleRegister( value, resetForm )});
 
   return (
     <Container component="main" maxWidth="xs">
@@ -52,9 +52,9 @@ export function FormRegister() {
             <Grid item xs={12} sm={6}>
               <TextField
                 autoComplete="fname"
-                name="firstName"
+                name="name"
                 variant="outlined"
-                value={ formik.values.firstName }
+                value={ formik.values.name }
                 onChange={ formik.handleChange }
                 required
                 fullWidth
@@ -100,6 +100,21 @@ export function FormRegister() {
                 variant="outlined"
                 required
                 fullWidth
+                id="phone1"
+                label="Telefono"
+                name="phone1"
+                value={ formik.values.phon1 }
+                onChange={ formik.handleChange }
+                autoComplete="off"
+                // error={formik.touched.email && Boolean(formik.errors.email)}
+                // helperText={formik.touched.email && formik.errors.email}
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                variant="outlined"
+                required
+                fullWidth
                 name="password"
                 value={ formik.values.password }
                 onChange={ formik.handleChange }
@@ -109,23 +124,31 @@ export function FormRegister() {
                 autoComplete="off"
                 error={formik.touched.password && Boolean(formik.errors.password)}
                 helperText={formik.touched.password && formik.errors.password}
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <TextField
-                variant="outlined"
-                required
-                fullWidth
-                name="password2"
-                value={ formik.values.password2 }
-                onChange={ formik.handleChange }
-                label="Confirma Contraseña"
-                type="password"
-                id="password2"
-                autoComplete="off"
-                error={formik.touched.password2 && Boolean(formik.errors.password2)}
-                helperText={formik.touched.password2 && formik.errors.password2}
-              />
+              /> 
+              
+              <FormControl className={classes.formControl}>
+                <InputLabel 
+                id="demo-simple-select-label"
+                >
+                  Grupo
+                </InputLabel>
+                 <Select
+                    labelId="demo-simple-select-label"
+                    id="demo-simple-select"
+                    name="group"
+                    value={ formik.values.group }
+                    onChange={formik.handleChange}
+                  >
+                <MenuItem value={1}>1</MenuItem>
+                <MenuItem value={2}>2</MenuItem>
+                <MenuItem value={3}>3</MenuItem>
+                <MenuItem value={4}>4</MenuItem>
+                <MenuItem value={5}>5</MenuItem>
+                <MenuItem value={6}>6</MenuItem>
+                <MenuItem value={7}>7</MenuItem>
+                <MenuItem value={8}>8</MenuItem>
+              </Select>
+            </FormControl>
             </Grid>
           </Grid>
           <Button
@@ -146,7 +169,6 @@ export function FormRegister() {
           </Grid>
         </form>
       </div>
-      <Copyright/>
     </Container>
   );
 }

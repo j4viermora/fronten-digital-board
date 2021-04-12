@@ -10,8 +10,8 @@ export const PublicRouters = ({
         <div>
             <Route 
             { ...rest }
-                render={
-                ( ...props ) => (
+                component={
+                ( props ) => (
                     ( isAuthenticated )
                     ? <Redirect to="/app" />
                     : <Component { ...props }  />

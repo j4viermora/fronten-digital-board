@@ -1,12 +1,12 @@
-import { Typography } from '@material-ui/core'
+import { Box, Typography } from '@material-ui/core'
 import React from 'react'
 
 export const Cuentas = () => {
     return (
-        <div>
+        <Box>
             <Typography>
                 Cuentas
             </Typography>
-        </div>
+        </Box>
     )
 }
