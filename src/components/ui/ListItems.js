@@ -44,7 +44,7 @@ export const mainListItems = (
         <LayersIcon />
       </ListItemIcon>
       <Link component={ RouterLink } to="/app/register">
-        <ListItemText primary="Registro de usuarios" />
+        <ListItemText primary="Registro publicadores" />
       </Link>
     </ListItem>
     <ListItem button>
